@@ -1,0 +1,11 @@
+<h1>Cocktail Club</h1>
+<ul>
+<% @cocktails.each do |c| %>
+  <li><%= c.name %> | <%= link_to "details", cocktail_path(c) %></li>
+  <% end %>
+</ul>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Add cocktail", class: "btn btn-primary" %>
+<% end %>
