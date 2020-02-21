@@ -1,11 +1,16 @@
-<h1>Cocktail Club</h1>
-<ul>
-<% @cocktails.each do |c| %>
-  <li><%= c.name %> | <%= link_to "details", cocktail_path(c) %></li>
+<div class="container">
+  <h1>Cocktail Club</h1>
+  <div class="cards">
+    <ul>
+        <% @cocktails.each do |c| %>
+      <li><%= c.name %> | <%= link_to "details", cocktail_path(c) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="form">
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "Add cocktail", class: "btn btn-primary" %>
   <% end %>
-</ul>
-
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name %>
-  <%= f.submit "Add cocktail", class: "btn btn-primary" %>
-<% end %>
+  </div>
+</div>
